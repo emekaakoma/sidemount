@@ -1,1 +1,37 @@
-[]
+[
+    {
+        "model": "sidemountapi.belt",
+        "pk": 1,
+        "fields": {
+            "label": "White"
+        }
+    },
+    {
+        "model": "sidemountapi.belt",
+        "pk": 2,
+        "fields": {
+            "label": "Blue"
+        }
+    },
+    {
+        "model": "sidemountapi.belt",
+        "pk": 3,
+        "fields": {
+            "label": "Purple"
+        }
+    },
+    {
+        "model": "sidemountapi.belt",
+        "pk": 4,
+        "fields": {
+            "label": "Brown"
+        }
+    },
+    {
+        "model": "sidemountapi.belt",
+        "pk": 5,
+        "fields": {
+            "label": "Black"
+        }
+    }
+]

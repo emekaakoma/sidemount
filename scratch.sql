@@ -1,0 +1,2 @@
+DELETE 
+FROM sidemountapi_event

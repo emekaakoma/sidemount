@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "model": "sidemountapi.event",
+        "pk": 1,
+        "fields": {
+            "organizer": 1,
+            "description": "SUB-ONLY EBI OVERTIME W/ SPECIFIC RULES PER BELT DIVISION",
+            "title": "WSOJJ",
+            "date": "2023-05-01",
+            "time": "2:00",
+            "location": "Atlanta, GA",
+            "image_url": "",
+            "gi": true
+        }
+    }
+]

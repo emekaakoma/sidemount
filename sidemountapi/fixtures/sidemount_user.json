@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "model": "sidemountapi.sidemountuser",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "It's me, Emeka.",
+            "profile_image_url": "",
+            "belt": 1
+        }
+    }
+]

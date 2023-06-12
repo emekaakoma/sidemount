@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "model": "sidemountapi.comment",
+        "pk": 1,
+        "fields": {
+            "event": 1,
+            "author": 1,
+            "content": "I cannot wait to compete in my first tournament!",
+            "created_on": "2023-06-12"
+        }
+    }
+]
