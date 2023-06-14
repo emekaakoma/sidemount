@@ -4,7 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from rest_framework.decorators import action
-from sidemountapi.models import Event, SideMountUser
+from sidemountapi.models import Event, SideMountUser, Gi
 
 
 class EventView(ViewSet):
@@ -29,7 +29,7 @@ class EventView(ViewSet):
         user = SideMountUser.objects.get(user=request.auth.user)
         serializer = CreateEventSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save(user=user)
+        serializer.save(organizer=user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk):
@@ -41,7 +41,9 @@ class EventView(ViewSet):
         event.time=request.data["time"]
         event.location=request.data["location"]
         event.image_url=request.data["image_url"]
-        event.gi=request.data["gi"]
+
+        gi = Gi.objects.get(request.data["gi"])
+        event.gi=gi
 
         organizer=SideMountUser.objects.get(user=request.auth.user)
         event.organizer=organizer
@@ -79,6 +81,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'organizer', 'description', 'title', 'date', 'time', 'location', 'attendees', 'image_url', 'gi')
+        depth = 1
 
 class CreateEventSerializer(serializers.ModelSerializer):
     class Meta:

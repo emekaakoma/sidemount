@@ -9,7 +9,7 @@ class Event(models.Model):
     location = models.CharField(max_length=100)
     attendees = models.ManyToManyField('SideMountUser', through='Attendee')
     image_url = models.TextField()
-    gi = models.BooleanField(default=True)
+    gi = models.ForeignKey('Gi', on_delete=models.CASCADE)
 
 
     @property

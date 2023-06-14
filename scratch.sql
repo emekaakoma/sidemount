@@ -1,2 +1,1 @@
-DELETE 
-FROM sidemountapi_event
+DROP TABLE sidemountapi_sidemountuser

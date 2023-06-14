@@ -1,0 +1,16 @@
+[
+    {
+        "model": "sidemountapi.gi",
+        "pk": 1,
+        "fields": {
+            "label": "NoGi"
+        }
+    },
+    {
+        "model": "sidemountapi.gi",
+        "pk": 2,
+        "fields": {
+            "label": "Gi"
+        }
+    }
+]

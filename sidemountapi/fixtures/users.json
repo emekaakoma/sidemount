@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "last_login": null,
+            "last_login": "2020-08-28T14:51:39.989Z",
             "is_superuser": false,
             "username": "Emeka16",
             "first_name": "Emeka",
