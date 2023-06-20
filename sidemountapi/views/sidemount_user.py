@@ -23,4 +23,5 @@ class SideMountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SideMountUser
-        fields = ('id', 'user', 'bio', 'profile_image_url', 'belt')
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'belt', 'events_attending')
+        depth = 1

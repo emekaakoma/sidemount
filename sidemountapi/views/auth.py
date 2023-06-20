@@ -4,6 +4,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from sidemountapi.models import Belt
 
 from sidemountapi.models import SideMountUser
 
@@ -44,7 +45,7 @@ def register_user(request):
     Method arguments:
       request -- The full HTTP request object
     '''
-
+    belt = Belt.objects.get(pk=request.data['belt'])
     # Create a new user by invoking the `create_user` helper method
     # on Django's built-in User model
     new_user = User.objects.create_user(
@@ -57,6 +58,7 @@ def register_user(request):
     # Now save the extra info in the sidemountapi_sidemount_user table
     users = SideMountUser.objects.create(
         bio=request.data['bio'],
+        belt=belt,
         user=new_user
     )
 

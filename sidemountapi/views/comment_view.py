@@ -16,10 +16,17 @@ class CommentView(ViewSet):
     def list(self, request):
         """Handle GET request for all comments"""
         comments = Comment.objects.all()
+        user = SideMountUser.objects.get(user=request.auth.user)
 
         event_id = request.query_params.get('event_id', None)
         if event_id is not None:
-            comments = comments.filter(post_id=event_id)
+            comments = comments.filter(event_id=event_id)
+
+        for comment in comments:
+            if comment.author == user:
+                comment.can_delete = True
+            else:
+                comment.can_delete = False
 
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
@@ -55,7 +62,8 @@ class CommentView(ViewSet):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'event_id', 'author', 'content','created_on')
+        fields = ('id', 'event_id', 'author', 'content','created_on', 'can_edit', 'can_delete')
+        depth = 2
 
 class CreateCommentSerializer(serializers.ModelSerializer):
     class Meta:

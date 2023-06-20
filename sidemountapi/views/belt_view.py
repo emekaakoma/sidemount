@@ -2,11 +2,12 @@
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers, status
+from rest_framework import serializers, status, permissions
 from sidemountapi.models import Belt
 
 
 class BeltView(ViewSet):
+    permission_classes = [permissions.AllowAny]
 
     def retrieve(self, request, pk):
         belt = Belt.objects.get(pk=pk)
